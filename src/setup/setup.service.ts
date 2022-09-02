@@ -12,6 +12,7 @@ export class SetupService {
     setupConfig.setupItems.forEach(async (item) => await this._setupItem(item, requestBody));
   }
 
+  //TODO: Add generate access token for internal server
   async _setupItem(setupItem: ISetupItem, requestBody: Body): Promise<void> {
     await axios.post(setupItem.url, requestBody);
   }
