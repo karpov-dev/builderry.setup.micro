@@ -14,7 +14,7 @@ export class SetupService {
   //TODO: Add generate access token for internal server
   //TODO: Add catch error with unavailable server
   async _setupItem(setupItem: ISetupInstance, requestBody: Body): Promise<void> {
-    await axios.post(setupItem.DEV.SERVER_URL, requestBody);
+    await axios.post(setupItem.DEV.SETUP_URL, requestBody);
   }
 
 }
