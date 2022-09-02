@@ -1,6 +1,6 @@
 import {Body, Controller, Param, Post} from "@nestjs/common";
 import {SetupService} from "./setup.service";
-import {configs} from "./setup.config";
+import {SETUP_QUEUES} from '@builderry/configs';
 
 @Controller('setup')
 export class SetupController {
@@ -12,7 +12,7 @@ export class SetupController {
   //TODO: Add spam guard
   @Post(':instanceName')
   setup(@Param('instanceName') instanceName: string, @Body() requestBody: Body): void {
-    this.setupService.setup(configs[instanceName], requestBody);
+    this.setupService.setup(SETUP_QUEUES[instanceName.toUpperCase()], requestBody);
   }
 
 }
